@@ -9,7 +9,7 @@ model:
   load_pretrained: True
 
   # Download "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth"
-  pretrained: "path/to/pretrained_weights"
+  pretrained: "~/wts"
   finetuned: ""
 
   # vit encoder
@@ -24,7 +24,7 @@ model:
 
   # path to Vicuna checkpoint
   # Download from https://huggingface.co/lmsys/vicuna-7b-v1.1
-  llm_model: "path/to/vicuna7b-v1.1"
+  llm_model: "~/wts"
 
   # generation configs
   prompt: ""
