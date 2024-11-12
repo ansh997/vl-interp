@@ -10,7 +10,7 @@ Official PyTorch Implementation
 
 ### Files
 ```
-git clone git@github.com:nickjiang2378/vl-interp.git
+git clone https://github.com/ansh997/vl-interp.git
 cd vl-interp
 ```
 
@@ -18,22 +18,21 @@ cd vl-interp
 
 ```
 # Create a new conda environment
-conda create -n vl python=3.9
+conda create -n vl python=3.9 -y
 conda activate vl
 
-# Set up LLaVA repo
-mkdir src/caption/llava
-cd src/caption/llava
-git clone https://github.com/haotian-liu/LLaVA.git
-cd LLaVA
+# install from root repo first
 pip3 install -e .
 
-# cd back into repo root
-cd ../../../../
+# Set up LLaVA repo
+cd src/caption/llava/LLaVA
 pip3 install -e .
 
 # Install some remaining packages
-pip3 install lightning openai-clip transformers==4.37.2 omegaconf python-dotenv
+pip3 install lightning openai-clip transformers==4.37.2 omegaconf python-dotenv "numpy<2"
+
+# Missing dependency (Only works with Conda not pip)
+conda install conda-forge::pattern -y
 ```
 
 ### Model Weights
@@ -41,6 +40,13 @@ pip3 install lightning openai-clip transformers==4.37.2 omegaconf python-dotenv
 The configs for InstructBLIP models are under `src/caption/lavis/configs/`.
 
 In order to get InstructBLIP (7B) working, you should download the [pretrained model weights](https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth) and [vicuna7b weights](https://huggingface.co/lmsys/vicuna-7b-v1.1).
+
+```
+# download wts
+mkdir ../wts
+wget https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth
+wget https://huggingface.co/lmsys/vicuna-7b-v1.1
+```
 
 In `src/caption/lavis/configs/blip2_instruct_vicuna7b.yaml`, set the `pretrained` location to the pretrained weight path and `llm_model` to the vicuna7b weight path.
 

@@ -258,10 +258,15 @@ def load_llava_state(device="cuda"):
     tokenizer, model, image_processor, context_len = load_pretrained_model(
         model_path, None, model_name
     )
+    
+    print(f"Model device: {next(model.parameters()).device}")
+    
 
     vocabulary = tokenizer.get_vocab()
-    vocab_embeddings = get_vocab_embeddings_llava(model, tokenizer, device=device)
-
+    vocab_embeddings = get_vocab_embeddings_llava(model, tokenizer,
+                                                  device=device
+                                                  )
+    
     execute_model = lambda img_path, text_prompt=None, image_embeddings=None: get_caption_from_llava(
         img_path, model, model_name, tokenizer, image_processor
     )
