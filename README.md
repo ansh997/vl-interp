@@ -10,7 +10,7 @@ Official PyTorch Implementation
 
 ### Files
 ```
-git clone git@github.com:nickjiang2378/vl-interp.git
+git clone https://github.com/ansh997/vl-interp.git
 cd vl-interp
 ```
 
