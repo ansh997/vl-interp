@@ -18,14 +18,11 @@ cd vl-interp
 
 ```
 # Create a new conda environment
-conda create -n vl python=3.9
+conda create -n vl python=3.9 -y
 conda activate vl
 
 # Set up LLaVA repo
-mkdir src/caption/llava
-cd src/caption/llava
-git clone https://github.com/haotian-liu/LLaVA.git
-cd LLaVA
+cd src/caption/llava/LLaVA
 pip3 install -e .
 
 # cd back into repo root
@@ -33,14 +30,10 @@ cd ../../../../
 pip3 install -e .
 
 # Install some remaining packages
-pip3 install lightning openai-clip transformers==4.37.2 omegaconf python-dotenv
-
-# Try This
-pip install "numpy<2"
-
+pip3 install lightning openai-clip transformers==4.37.2 omegaconf python-dotenv "numpy<2"
 
 # Missing dependency (Only works with Conda not pip)
-conda install conda-forge::pattern
+conda install conda-forge::pattern -y
 ```
 
 ### Model Weights
