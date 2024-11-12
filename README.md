@@ -21,12 +21,11 @@ cd vl-interp
 conda create -n vl python=3.9 -y
 conda activate vl
 
-# Set up LLaVA repo
-cd src/caption/llava/LLaVA
+# install from root repo first
 pip3 install -e .
 
-# cd back into repo root
-cd ../../../../
+# Set up LLaVA repo
+cd src/caption/llava/LLaVA
 pip3 install -e .
 
 # Install some remaining packages
