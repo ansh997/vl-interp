@@ -37,8 +37,7 @@ pip3 install lightning openai-clip transformers==4.37.2 omegaconf python-dotenv
 
 # Try This
 pip install "numpy<2"
-pip uninstall torch
-pip install torch
+
 
 # Missing dependency (Only works with Conda not pip)
 conda install conda-forge::pattern
